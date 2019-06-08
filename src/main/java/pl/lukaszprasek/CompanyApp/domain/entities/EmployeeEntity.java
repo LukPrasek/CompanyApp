@@ -1,6 +1,7 @@
 package pl.lukaszprasek.CompanyApp.domain.entities;
 
 import pl.lukaszprasek.CompanyApp.common.enums.EmployeePosition;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import javax.persistence.Column;
@@ -19,12 +20,21 @@ public class EmployeeEntity {
     private LocalDate birthday;
     @Column(name = "start_working_date")
     private LocalDate startWorkingDate;
+
     @Enumerated(EnumType.STRING)
     @Column(name = "employee_position")
     private EmployeePosition employeePosition;
+
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "site_id")
     private SiteEntity siteEntity;
+
+    @OneToOne(mappedBy = "employeeEntity",cascade = CascadeType.ALL)
+    private CarEntity carEntity;
+
+    public CarEntity getCarEntity() {
+        return carEntity;
+    }
 
     public long getEmployeeId() {
         return employeeId;

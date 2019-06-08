@@ -15,6 +15,7 @@ public class EmployeeDto implements Serializable {
     private String startWorkingDate;
     private String employeePosition;
     private long siteId;
+    private long carId;
 
     private EmployeeDto(Builder builder) {
         this.employeeId = builder.employeeId;
@@ -24,6 +25,7 @@ public class EmployeeDto implements Serializable {
         this.startWorkingDate = builder.startWorkingDate;
         this.employeePosition = builder.employeePosition;
         this.siteId = builder.siteId;
+        this.carId = builder.carId;
 
     }
 
@@ -50,6 +52,7 @@ public class EmployeeDto implements Serializable {
     public String getEmployeePosition() {
         return employeePosition;
     }
+
     public long getSiteId() {
         return siteId;
     }
@@ -62,6 +65,8 @@ public class EmployeeDto implements Serializable {
         private String startWorkingDate;
         private String employeePosition;
         private long siteId;
+        private long carId;
+
 
         public Builder withId(long id) {
             this.employeeId = id;
@@ -96,6 +101,11 @@ public class EmployeeDto implements Serializable {
 
         public Builder withSiteId(long siteId) {
             this.siteId = siteId;
+            return this;
+        }
+
+        public Builder withCarId(long carId) {
+            this.carId = carId;
             return this;
         }
 
