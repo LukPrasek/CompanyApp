@@ -15,4 +15,16 @@ public class SiteEntity {
     private long siteId;
     private String address;
     private String name;
+
+    public long getSiteId() {
+        return siteId;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
