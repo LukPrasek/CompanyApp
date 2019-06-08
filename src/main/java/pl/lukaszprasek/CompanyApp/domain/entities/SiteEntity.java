@@ -2,10 +2,8 @@ package pl.lukaszprasek.CompanyApp.domain.entities;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "site")
@@ -15,6 +13,9 @@ public class SiteEntity {
     private long siteId;
     private String address;
     private String name;
+    @OneToMany(mappedBy = "siteEntity", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<EmployeeEntity> employeeEntityList;
+
 
     public long getSiteId() {
         return siteId;
@@ -26,5 +27,9 @@ public class SiteEntity {
 
     public String getName() {
         return name;
+    }
+
+    public List<EmployeeEntity> getEmployeeEntityList() {
+        return employeeEntityList;
     }
 }

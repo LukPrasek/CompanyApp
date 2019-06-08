@@ -6,6 +6,8 @@ import pl.lukaszprasek.CompanyApp.domain.entities.SiteEntity;
 import pl.lukaszprasek.CompanyApp.domain.repositories.SiteRepository;
 import pl.lukaszprasek.CompanyApp.rest.dto.SiteDto;
 
+import java.util.stream.Collectors;
+
 @Service
 public class SiteServiceImpl implements SiteService {
     private final SiteRepository siteRepository;
@@ -22,6 +24,8 @@ public class SiteServiceImpl implements SiteService {
         return new SiteDto.Builder()
                 .withSiteId(siteEntity.getSiteId())
                 .withName(siteEntity.getName())
-                .withAddress(siteEntity.getAddress()).build();
+                .withAddress(siteEntity.getAddress())
+                .withEmployeeList(siteEntity.getEmployeeEntityList().stream()
+                .map(employeeEntity -> employeeEntity.getEmployeeId()).collect(Collectors.toList())).build();
     }
 }

@@ -14,7 +14,7 @@ public class EmployeeDto implements Serializable {
     private String birthday;
     private String startWorkingDate;
     private String employeePosition;
-//    private long siteId;
+    private long siteId;
 
     private EmployeeDto(Builder builder) {
         this.employeeId = builder.employeeId;
@@ -23,6 +23,35 @@ public class EmployeeDto implements Serializable {
         this.birthday = builder.birthday;
         this.startWorkingDate = builder.startWorkingDate;
         this.employeePosition = builder.employeePosition;
+        this.siteId = builder.siteId;
+
+    }
+
+    public long getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public String getStartWorkingDate() {
+        return startWorkingDate;
+    }
+
+    public String getEmployeePosition() {
+        return employeePosition;
+    }
+    public long getSiteId() {
+        return siteId;
     }
 
     public static class Builder {
@@ -32,6 +61,7 @@ public class EmployeeDto implements Serializable {
         private String birthday;
         private String startWorkingDate;
         private String employeePosition;
+        private long siteId;
 
         public Builder withId(long id) {
             this.employeeId = id;
@@ -64,31 +94,13 @@ public class EmployeeDto implements Serializable {
             return this;
         }
 
+        public Builder withSiteId(long siteId) {
+            this.siteId = siteId;
+            return this;
+        }
+
         public EmployeeDto build() {
             return new EmployeeDto(this);
         }
-    }
-    public long getEmployeeId() {
-        return employeeId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public String getStartWorkingDate() {
-        return startWorkingDate;
-    }
-
-    public String getEmployeePosition() {
-        return employeePosition;
     }
 }

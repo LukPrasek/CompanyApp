@@ -23,6 +23,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .withSurname(employerEntity.getSurname())
                 .withBirthday(employerEntity.getBirthday())
                 .withStartWorkingDate(employerEntity.getStartWorkingDate())
-                .withEmployeePosition(employerEntity.getEmployeePosition()).build();
+                .withEmployeePosition(employerEntity.getEmployeePosition())
+                .withSiteId(employerEntity.getSiteEntity().getSiteId()).build();
     }
 }

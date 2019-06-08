@@ -22,9 +22,9 @@ public class EmployeeEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "employee_position")
     private EmployeePosition employeePosition;
-//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "site_id")
-//    private SiteEntity siteEntity;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "site_id")
+    private SiteEntity siteEntity;
 
     public long getEmployeeId() {
         return employeeId;
@@ -48,5 +48,9 @@ public class EmployeeEntity {
 
     public EmployeePosition getEmployeePosition() {
         return employeePosition;
+    }
+
+    public SiteEntity getSiteEntity() {
+        return siteEntity;
     }
 }
