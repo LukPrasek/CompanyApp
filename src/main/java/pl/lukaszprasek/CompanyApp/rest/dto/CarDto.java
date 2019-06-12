@@ -13,6 +13,8 @@ public class CarDto implements Serializable {
         this.carId = builder.carId;
         this.brand = builder.brand;
         this.model = builder.model;
+        this.seatsNumber = builder.seatsNumber;
+        this.empId = builder.empId;
 
     }
 
@@ -60,7 +62,6 @@ public class CarDto implements Serializable {
 
         public Builder withSeatsNumber(int seatsNumber) {
             this.seatsNumber = seatsNumber;
-            System.out.println(seatsNumber+"****************");
             return this;
         }
 

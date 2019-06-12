@@ -32,4 +32,16 @@ public class SiteEntity {
     public List<EmployeeEntity> getEmployeeEntityList() {
         return employeeEntityList;
     }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setEmployeeEntityList(List<EmployeeEntity> employeeEntityList) {
+        this.employeeEntityList = employeeEntityList;
+    }
 }
